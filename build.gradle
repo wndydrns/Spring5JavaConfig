@@ -1,0 +1,32 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.2.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+	id 'war'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+	implementation 'org.springframework:spring-webmvc'
+	compileOnly("javax.servlet:javax.servlet-api:3.0.1")
+	compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+	
+	
+	compileOnly 'org.projectlombok:lombok:1.18.10'
+	annotationProcessor 'org.projectlombok:lombok:1.18.10'
+	implementation 'com.google.guava:guava:11.0.2'
+}
+
+test {
+	useJUnitPlatform()
+}
